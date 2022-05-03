@@ -1,0 +1,7 @@
+{
+  "editor.insertSpaces": true,
+  "files.associations": {
+    "*.YAML-tmLanguage": "yaml",
+    "*.YAML-tmTheme": "yaml"
+  }
+}

@@ -1,0 +1,55 @@
+---
+# Properties
+name: 4GL
+scopeName: source.4gl
+fileTypes: [ 4gl, 4GL ]
+uuid: 8faf6be5-5e96-4a45-bca7-7f0387a04215
+
+# Patterns
+patterns:
+  - include: "#comment"
+
+repository:
+  # Comments
+  comment:
+    patterns:
+      - include: '#document-block-comment'
+      - include: '#block-comment'
+      - include: '#single-line-comment-double-dash'
+      - include: '#single-line-comment-number-sign'
+
+  # Document block comment (#+)
+  document-block-comment:
+    name: comment.block.documentation.4gl
+    begin: (\#\+)
+    beginCaptures:
+      '1': { name: punctuation.definition.comment.4gl }
+    end: ^(?!\s*\#\+)
+
+  # Single line comment (--)
+  single-line-comment-double-dash:
+    name: comment.line.double-dash.4gl
+    begin: (^[ \t]+)?(--)
+    beginCaptures:
+      '1': { name: punctuation.whitespace.comment.leading.4gl }
+      '2': { name: punctuation.definition.comment.4gl }
+    end: (?=$)
+
+  # Single line comment (#)
+  single-line-comment-number-sign:
+    name: comment.line.number-sign.4gl
+    begin: (^[ \t]+)?(#(?!\+))
+    beginCaptures:
+      '1': { name: punctuation.whitespace.comment.leading.4gl }
+      '2': { name: punctuation.definition.comment.4gl }
+    end: (?=$)
+
+  # Block comment ({ })
+  block-comment:
+    name: comment.block.4gl
+    begin: (\{)
+    beginCaptures:
+      '1': { name: punctuation.definition.comment.4gl }
+    end: (\})
+    endCaptures:
+      '1': { name: punctuation.definition.comment.4gl }

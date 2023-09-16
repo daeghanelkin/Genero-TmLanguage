@@ -1,0 +1,44 @@
+original file
+-----------------------------------
+# Single line comment
+-- Single line comment
+{ Block comment }
+{
+   Block comment
+}
+#+ Document comment
+-----------------------------------
+
+Grammar: 4GL.tmLanguage
+-----------------------------------
+># Single line comment
+ ^
+ source.4gl comment.line.number-sign.4gl punctuation.definition.comment.4gl
+  ^^^^^^^^^^^^^^^^^^^^
+  source.4gl comment.line.number-sign.4gl
+>-- Single line comment
+ ^^
+ source.4gl comment.line.double-dash.4gl punctuation.definition.comment.4gl
+   ^^^^^^^^^^^^^^^^^^^^
+   source.4gl comment.line.double-dash.4gl
+>{ Block comment }
+ ^
+ source.4gl comment.block.4gl punctuation.definition.comment.4gl
+  ^^^^^^^^^^^^^^^
+  source.4gl comment.block.4gl
+                 ^
+                 source.4gl comment.block.4gl punctuation.definition.comment.4gl
+>{
+ ^
+ source.4gl comment.block.4gl punctuation.definition.comment.4gl
+>   Block comment
+ ^^^^^^^^^^^^^^^^^
+ source.4gl comment.block.4gl
+>}
+ ^
+ source.4gl comment.block.4gl punctuation.definition.comment.4gl
+>#+ Document comment
+ ^^
+ source.4gl comment.block.documentation.4gl punctuation.definition.comment.4gl
+   ^^^^^^^^^^^^^^^^^^
+   source.4gl comment.block.documentation.4gl

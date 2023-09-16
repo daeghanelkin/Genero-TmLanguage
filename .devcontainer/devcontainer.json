@@ -1,0 +1,27 @@
+{
+    "name": "genero-tmLanguage",
+    "image": "mcr.microsoft.com/devcontainers/typescript-node",
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils": {
+            "configureZshAsDefaultShell": true,
+            "username": "node",
+            "userUid": 1000,
+            "userGid": 1000
+        },
+        "ghcr.io/devcontainers/features/git": {
+            "version": "latest"
+        },
+        "ghcr.io/guiyomh/features/vim:0": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "dbaeumer.vscode-eslint",
+                "eamodio.gitlens",
+                "GitHub.vscode-pull-request-github",
+                "yzhang.markdown-all-in-one"
+            ]
+        }
+    },
+    "remoteUser": "node"
+}

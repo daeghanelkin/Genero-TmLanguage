@@ -1,0 +1,38 @@
+original file
+-----------------------------------
+# Single line comment
+-- Single line comment
+{ Block comment }
+{
+   Block comment
+}
+-----------------------------------
+
+Grammar: PER.tmLanguage
+-----------------------------------
+># Single line comment
+ ^
+ source.per comment.line.number-sign.per punctuation.definition.comment.per
+  ^^^^^^^^^^^^^^^^^^^^
+  source.per comment.line.number-sign.per
+>-- Single line comment
+ ^^
+ source.per comment.line.double-dash.per punctuation.definition.comment.per
+   ^^^^^^^^^^^^^^^^^^^^
+   source.per comment.line.double-dash.per
+>{ Block comment }
+ ^
+ source.per comment.block.per punctuation.definition.comment.per
+  ^^^^^^^^^^^^^^^
+  source.per comment.block.per
+                 ^
+                 source.per comment.block.per punctuation.definition.comment.per
+>{
+ ^
+ source.per comment.block.per punctuation.definition.comment.per
+>   Block comment
+ ^^^^^^^^^^^^^^^^^
+ source.per comment.block.per
+>}
+ ^
+ source.per comment.block.per punctuation.definition.comment.per

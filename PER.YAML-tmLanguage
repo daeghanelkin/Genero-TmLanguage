@@ -1,0 +1,46 @@
+---
+# Properties
+name: PER
+scopeName: source.per
+fileTypes: [ per, PER ]
+uuid: c69a8f8f-60cd-496f-9341-1571744e8ffd
+
+# Patterns
+patterns:
+  - include: "#comment"
+
+repository:
+  # Comments
+  comment:
+    patterns:
+      - include: '#block-comment'
+      - include: '#single-line-comment-double-dash'
+      - include: '#single-line-comment-number-sign'
+
+  # Single line comment (--)
+  single-line-comment-double-dash:
+    name: comment.line.double-dash.per
+    begin: (^[ \t]+)?(--)
+    beginCaptures:
+      '1': { name: punctuation.whitespace.comment.leading.per }
+      '2': { name: punctuation.definition.comment.per }
+    end: (?=$)
+
+  # Single line comment (#)
+  single-line-comment-number-sign:
+    name: comment.line.number-sign.per
+    begin: (^[ \t]+)?(#(?!\+))
+    beginCaptures:
+      '1': { name: punctuation.whitespace.comment.leading.per }
+      '2': { name: punctuation.definition.comment.per }
+    end: (?=$)
+
+  # Block comment ({ })
+  block-comment:
+    name: comment.block.per
+    begin: (\{)
+    beginCaptures:
+      '1': { name: punctuation.definition.comment.per }
+    end: (\})
+    endCaptures:
+      '1': { name: punctuation.definition.comment.per }

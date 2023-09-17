@@ -8,6 +8,7 @@ uuid: 8faf6be5-5e96-4a45-bca7-7f0387a04215
 # Patterns
 patterns:
   - include: "#comment"
+  - include: "#string"
 
 repository:
   # Comments
@@ -53,3 +54,48 @@ repository:
     end: (\})
     endCaptures:
       '1': { name: punctuation.definition.comment.4gl }
+
+  string:
+    patterns:
+      - include: '#single-quote-string'
+      - include: '#double-quote-string'
+      - include: '#backtick-string'
+
+  single-quote-string:
+    name: string.quoted.single.4gl
+    begin: "%?'"
+    beginCaptures:
+      '0': { name: punctuation.definition.string.begin.4gl }
+    end: "'(?!')"
+    endCaptures:
+      '0': { name: punctuation.definition.string.end.4gl }
+    patterns:
+      - include: '#string-character-escape'
+      - name: constant.character.escape.4gl
+        match: \'\'
+
+  double-quote-string:
+    name: string.quoted.double.4gl
+    begin: '%?"'
+    beginCaptures:
+      '0': { name: punctuation.definition.string.begin.4gl }
+    end: '"(?!")'
+    endCaptures:
+      '0': { name: punctuation.definition.string.end.4gl }
+    patterns:
+      - include: '#string-character-escape'
+      - name: constant.character.escape.4gl
+        match: \"\"
+
+  backtick-string:
+    name: string.quoted.other.backtick.4gl
+    begin: '%?`'
+    beginCaptures:
+      '0': { name: punctuation.definition.string.begin.4gl }
+    end: '`'
+    endCaptures:
+      '0': { name: punctuation.definition.string.end.4gl }
+
+  string-character-escape:
+    name: constant.character.escape.4gl
+    match: \\(x[0-9a-fA-F]{2}|.)

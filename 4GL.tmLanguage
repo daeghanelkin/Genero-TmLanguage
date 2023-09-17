@@ -19,6 +19,10 @@
         <key>include</key>
         <string>#comment</string>
       </dict>
+      <dict>
+        <key>include</key>
+        <string>#string</string>
+      </dict>
     </array>
     <key>repository</key>
     <dict>
@@ -129,6 +133,132 @@
             <string>punctuation.definition.comment.4gl</string>
           </dict>
         </dict>
+      </dict>
+      <key>string</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#single-quote-string</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#double-quote-string</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#backtick-string</string>
+          </dict>
+        </array>
+      </dict>
+      <key>single-quote-string</key>
+      <dict>
+        <key>name</key>
+        <string>string.quoted.single.4gl</string>
+        <key>begin</key>
+        <string>%?'</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.string.begin.4gl</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>'(?!')</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.string.end.4gl</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#string-character-escape</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>constant.character.escape.4gl</string>
+            <key>match</key>
+            <string>\'\'</string>
+          </dict>
+        </array>
+      </dict>
+      <key>double-quote-string</key>
+      <dict>
+        <key>name</key>
+        <string>string.quoted.double.4gl</string>
+        <key>begin</key>
+        <string>%?"</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.string.begin.4gl</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>"(?!")</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.string.end.4gl</string>
+          </dict>
+        </dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#string-character-escape</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>constant.character.escape.4gl</string>
+            <key>match</key>
+            <string>\"\"</string>
+          </dict>
+        </array>
+      </dict>
+      <key>backtick-string</key>
+      <dict>
+        <key>name</key>
+        <string>string.quoted.other.backtick.4gl</string>
+        <key>begin</key>
+        <string>%?`</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.string.begin.4gl</string>
+          </dict>
+        </dict>
+        <key>end</key>
+        <string>`</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>0</key>
+          <dict>
+            <key>name</key>
+            <string>punctuation.definition.string.end.4gl</string>
+          </dict>
+        </dict>
+      </dict>
+      <key>string-character-escape</key>
+      <dict>
+        <key>name</key>
+        <string>constant.character.escape.4gl</string>
+        <key>match</key>
+        <string>\\(x[0-9a-fA-F]{2}|.)</string>
       </dict>
     </dict>
   </dict>

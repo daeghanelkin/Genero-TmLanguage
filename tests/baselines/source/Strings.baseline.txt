@@ -1,0 +1,202 @@
+original file
+-----------------------------------
+constant test1 = "foo"
+constant test2 = """"
+constant test3 = "
+foo
+"
+constant test4 = "\\\"\'\n\r\0\f\t\x0a"
+constant test5 = %"localized"
+
+constant test6 = 'foo'
+constant test7 = ''''
+constant test8 = '
+foo
+'
+constant test9 = '\\\"\'\n\r\0\f\t\x0a'
+constant test10 = %'localized'
+
+constant test10 = `foo`
+constant test11 = `""''`
+constant test12 = `
+foo
+`
+constant test13 = %`localized`
+
+-----------------------------------
+
+Grammar: 4GL.tmLanguage
+-----------------------------------
+>constant test1 = "foo"
+ ^^^^^^^^^^^^^^^^^
+ source.4gl
+                  ^
+                  source.4gl string.quoted.double.4gl punctuation.definition.string.begin.4gl
+                   ^^^
+                   source.4gl string.quoted.double.4gl
+                      ^
+                      source.4gl string.quoted.double.4gl punctuation.definition.string.end.4gl
+>constant test2 = """"
+ ^^^^^^^^^^^^^^^^^
+ source.4gl
+                  ^
+                  source.4gl string.quoted.double.4gl punctuation.definition.string.begin.4gl
+                   ^^
+                   source.4gl string.quoted.double.4gl constant.character.escape.4gl
+                     ^
+                     source.4gl string.quoted.double.4gl punctuation.definition.string.end.4gl
+>constant test3 = "
+ ^^^^^^^^^^^^^^^^^
+ source.4gl
+                  ^
+                  source.4gl string.quoted.double.4gl punctuation.definition.string.begin.4gl
+>foo
+ ^^^^
+ source.4gl string.quoted.double.4gl
+>"
+ ^
+ source.4gl string.quoted.double.4gl punctuation.definition.string.end.4gl
+>constant test4 = "\\\"\'\n\r\0\f\t\x0a"
+ ^^^^^^^^^^^^^^^^^
+ source.4gl
+                  ^
+                  source.4gl string.quoted.double.4gl punctuation.definition.string.begin.4gl
+                   ^^
+                   source.4gl string.quoted.double.4gl constant.character.escape.4gl
+                     ^^
+                     source.4gl string.quoted.double.4gl constant.character.escape.4gl
+                       ^^
+                       source.4gl string.quoted.double.4gl constant.character.escape.4gl
+                         ^^
+                         source.4gl string.quoted.double.4gl constant.character.escape.4gl
+                           ^^
+                           source.4gl string.quoted.double.4gl constant.character.escape.4gl
+                             ^^
+                             source.4gl string.quoted.double.4gl constant.character.escape.4gl
+                               ^^
+                               source.4gl string.quoted.double.4gl constant.character.escape.4gl
+                                 ^^
+                                 source.4gl string.quoted.double.4gl constant.character.escape.4gl
+                                   ^^^^
+                                   source.4gl string.quoted.double.4gl constant.character.escape.4gl
+                                       ^
+                                       source.4gl string.quoted.double.4gl punctuation.definition.string.end.4gl
+>constant test5 = %"localized"
+ ^^^^^^^^^^^^^^^^^
+ source.4gl
+                  ^^
+                  source.4gl string.quoted.double.4gl punctuation.definition.string.begin.4gl
+                    ^^^^^^^^^
+                    source.4gl string.quoted.double.4gl
+                             ^
+                             source.4gl string.quoted.double.4gl punctuation.definition.string.end.4gl
+>
+ ^
+ source.4gl
+>constant test6 = 'foo'
+ ^^^^^^^^^^^^^^^^^
+ source.4gl
+                  ^
+                  source.4gl string.quoted.single.4gl punctuation.definition.string.begin.4gl
+                   ^^^
+                   source.4gl string.quoted.single.4gl
+                      ^
+                      source.4gl string.quoted.single.4gl punctuation.definition.string.end.4gl
+>constant test7 = ''''
+ ^^^^^^^^^^^^^^^^^
+ source.4gl
+                  ^
+                  source.4gl string.quoted.single.4gl punctuation.definition.string.begin.4gl
+                   ^^
+                   source.4gl string.quoted.single.4gl constant.character.escape.4gl
+                     ^
+                     source.4gl string.quoted.single.4gl punctuation.definition.string.end.4gl
+>constant test8 = '
+ ^^^^^^^^^^^^^^^^^
+ source.4gl
+                  ^
+                  source.4gl string.quoted.single.4gl punctuation.definition.string.begin.4gl
+>foo
+ ^^^^
+ source.4gl string.quoted.single.4gl
+>'
+ ^
+ source.4gl string.quoted.single.4gl punctuation.definition.string.end.4gl
+>constant test9 = '\\\"\'\n\r\0\f\t\x0a'
+ ^^^^^^^^^^^^^^^^^
+ source.4gl
+                  ^
+                  source.4gl string.quoted.single.4gl punctuation.definition.string.begin.4gl
+                   ^^
+                   source.4gl string.quoted.single.4gl constant.character.escape.4gl
+                     ^^
+                     source.4gl string.quoted.single.4gl constant.character.escape.4gl
+                       ^^
+                       source.4gl string.quoted.single.4gl constant.character.escape.4gl
+                         ^^
+                         source.4gl string.quoted.single.4gl constant.character.escape.4gl
+                           ^^
+                           source.4gl string.quoted.single.4gl constant.character.escape.4gl
+                             ^^
+                             source.4gl string.quoted.single.4gl constant.character.escape.4gl
+                               ^^
+                               source.4gl string.quoted.single.4gl constant.character.escape.4gl
+                                 ^^
+                                 source.4gl string.quoted.single.4gl constant.character.escape.4gl
+                                   ^^^^
+                                   source.4gl string.quoted.single.4gl constant.character.escape.4gl
+                                       ^
+                                       source.4gl string.quoted.single.4gl punctuation.definition.string.end.4gl
+>constant test10 = %'localized'
+ ^^^^^^^^^^^^^^^^^^
+ source.4gl
+                   ^^
+                   source.4gl string.quoted.single.4gl punctuation.definition.string.begin.4gl
+                     ^^^^^^^^^
+                     source.4gl string.quoted.single.4gl
+                              ^
+                              source.4gl string.quoted.single.4gl punctuation.definition.string.end.4gl
+>
+ ^
+ source.4gl
+>constant test10 = `foo`
+ ^^^^^^^^^^^^^^^^^^
+ source.4gl
+                   ^
+                   source.4gl string.quoted.other.backtick.4gl punctuation.definition.string.begin.4gl
+                    ^^^
+                    source.4gl string.quoted.other.backtick.4gl
+                       ^
+                       source.4gl string.quoted.other.backtick.4gl punctuation.definition.string.end.4gl
+>constant test11 = `""''`
+ ^^^^^^^^^^^^^^^^^^
+ source.4gl
+                   ^
+                   source.4gl string.quoted.other.backtick.4gl punctuation.definition.string.begin.4gl
+                    ^^^^
+                    source.4gl string.quoted.other.backtick.4gl
+                        ^
+                        source.4gl string.quoted.other.backtick.4gl punctuation.definition.string.end.4gl
+>constant test12 = `
+ ^^^^^^^^^^^^^^^^^^
+ source.4gl
+                   ^
+                   source.4gl string.quoted.other.backtick.4gl punctuation.definition.string.begin.4gl
+>foo
+ ^^^^
+ source.4gl string.quoted.other.backtick.4gl
+>`
+ ^
+ source.4gl string.quoted.other.backtick.4gl punctuation.definition.string.end.4gl
+>constant test13 = %`localized`
+ ^^^^^^^^^^^^^^^^^^
+ source.4gl
+                   ^^
+                   source.4gl string.quoted.other.backtick.4gl punctuation.definition.string.begin.4gl
+                     ^^^^^^^^^
+                     source.4gl string.quoted.other.backtick.4gl
+                              ^
+                              source.4gl string.quoted.other.backtick.4gl punctuation.definition.string.end.4gl
+>
+ ^
+ source.4gl

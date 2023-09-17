@@ -23,5 +23,8 @@
             ]
         }
     },
-    "remoteUser": "node"
+    "remoteUser": "node",
+    "remoteEnv": {
+        "DIFF": "diff --recursive --report-identical-files --unified --new-file --minimal"
+    }
 }

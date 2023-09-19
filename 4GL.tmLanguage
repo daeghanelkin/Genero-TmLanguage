@@ -23,6 +23,10 @@
         <key>include</key>
         <string>#string</string>
       </dict>
+      <dict>
+        <key>include</key>
+        <string>#numeric-literal</string>
+      </dict>
     </array>
     <key>repository</key>
     <dict>
@@ -259,6 +263,22 @@
         <string>constant.character.escape.4gl</string>
         <key>match</key>
         <string>\\(x[0-9a-fA-F]{2}|.)</string>
+      </dict>
+      <key>numeric-literal</key>
+      <dict>
+        <key>name</key>
+        <string>constant.numeric.decimal.4gl</string>
+        <key>match</key>
+        <string>(?x)(?:
+  (?:\b[0-9]+(\.)[0-9]+[eE][+-]?[0-9]+\b) | # 1.1E+3
+  (?:\b[0-9]+(\.)[eE][+-]?[0-9]+\b)       | # 1.E+3
+  (?:\B(\.)[0-9]+[eE][+-]?[0-9]+\b)       | # .1E+3
+  (?:\b[0-9]+[eE][+-]?[0-9]+\b)           | # 1E+3
+  (?:\b[0-9]+(\.)[0-9]+\b)                | # 1.1
+  (?:\b[0-9]+(\.)\B)                      | # 1.
+  (?:\B(\.)[0-9]+\b)                      | # .1
+  (?:\b[0-9]+\b(?!\.))                      # 1
+)</string>
       </dict>
     </dict>
   </dict>

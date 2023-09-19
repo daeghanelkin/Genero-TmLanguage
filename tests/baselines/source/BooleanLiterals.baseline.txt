@@ -1,0 +1,34 @@
+original file
+-----------------------------------
+constant test1 = true
+constant test2 = TRUE
+
+constant test3 = false
+constant test4 = FALSE
+-----------------------------------
+
+Grammar: 4GL.tmLanguage
+-----------------------------------
+>constant test1 = true
+ ^^^^^^^^^^^^^^^^^
+ source.4gl
+                  ^^^^
+                  source.4gl constant.language.boolean.true.4gl
+>constant test2 = TRUE
+ ^^^^^^^^^^^^^^^^^
+ source.4gl
+                  ^^^^
+                  source.4gl constant.language.boolean.true.4gl
+>
+ ^
+ source.4gl
+>constant test3 = false
+ ^^^^^^^^^^^^^^^^^
+ source.4gl
+                  ^^^^^
+                  source.4gl constant.language.boolean.false.4gl
+>constant test4 = FALSE
+ ^^^^^^^^^^^^^^^^^
+ source.4gl
+                  ^^^^^
+                  source.4gl constant.language.boolean.false.4gl

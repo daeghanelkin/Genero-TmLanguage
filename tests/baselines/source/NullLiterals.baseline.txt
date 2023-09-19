@@ -1,0 +1,18 @@
+original file
+-----------------------------------
+constant test1 = null
+constant test2 = NULL
+-----------------------------------
+
+Grammar: 4GL.tmLanguage
+-----------------------------------
+>constant test1 = null
+ ^^^^^^^^^^^^^^^^^
+ source.4gl
+                  ^^^^
+                  source.4gl constant.language.null.4gl
+>constant test2 = NULL
+ ^^^^^^^^^^^^^^^^^
+ source.4gl
+                  ^^^^
+                  source.4gl constant.language.null.4gl

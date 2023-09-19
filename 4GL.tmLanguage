@@ -25,7 +25,7 @@
       </dict>
       <dict>
         <key>include</key>
-        <string>#numeric-literal</string>
+        <string>#literal</string>
       </dict>
     </array>
     <key>repository</key>
@@ -264,6 +264,28 @@
         <key>match</key>
         <string>\\(x[0-9a-fA-F]{2}|.)</string>
       </dict>
+      <key>literal</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>include</key>
+            <string>#numeric-literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#boolean-literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#null-literal</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#numeric-constant-literal</string>
+          </dict>
+        </array>
+      </dict>
       <key>numeric-literal</key>
       <dict>
         <key>name</key>
@@ -279,6 +301,43 @@
   (?:\B(\.)[0-9]+\b)                      | # .1
   (?:\b[0-9]+\b(?!\.))                      # 1
 )</string>
+      </dict>
+      <key>boolean-literal</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>name</key>
+            <string>constant.language.boolean.true.4gl</string>
+            <key>match</key>
+            <string>(?i)(?&lt;!\w)(?&lt;!\.)true(?!\w)(?!\.)</string>
+          </dict>
+          <dict>
+            <key>name</key>
+            <string>constant.language.boolean.false.4gl</string>
+            <key>match</key>
+            <string>(?i)(?&lt;!\w)(?&lt;!\.)false(?!\w)(?!\.)</string>
+          </dict>
+        </array>
+      </dict>
+      <key>null-literal</key>
+      <dict>
+        <key>name</key>
+        <string>constant.language.null.4gl</string>
+        <key>match</key>
+        <string>(?i)(?&lt;!\w)(?&lt;!\.)null(?!\w)(?!\.)</string>
+      </dict>
+      <key>numeric-constant-literal</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>name</key>
+            <string>constant.language.notfound.4gl</string>
+            <key>match</key>
+            <string>(?i)(?&lt;!\w)(?&lt;!\.)notfound(?!\w)(?!\.)</string>
+          </dict>
+        </array>
       </dict>
     </dict>
   </dict>

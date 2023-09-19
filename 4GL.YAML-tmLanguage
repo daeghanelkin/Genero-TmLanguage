@@ -5,11 +5,15 @@ scopeName: source.4gl
 fileTypes: [ 4gl, 4GL ]
 uuid: 8faf6be5-5e96-4a45-bca7-7f0387a04215
 
+variables:
+  startOfIdentifier: (?<!\w)(?<!\.)
+  endOfIdentifier: (?!\w)(?!\.)
+
 # Patterns
 patterns:
   - include: "#comment"
   - include: "#string"
-  - include: '#numeric-literal'
+  - include: '#literal'
 
 repository:
   # Comments
@@ -101,6 +105,13 @@ repository:
     name: constant.character.escape.4gl
     match: \\(x[0-9a-fA-F]{2}|.)
 
+  literal:
+    patterns:
+      - include: '#numeric-literal'
+      - include: '#boolean-literal'
+      - include: '#null-literal'
+      - include: '#numeric-constant-literal'
+
   numeric-literal:
     # Could capture decimal point in the future
     name: constant.numeric.decimal.4gl
@@ -115,3 +126,19 @@ repository:
         (?:\B(\.)[0-9]+\b)                      | # .1
         (?:\b[0-9]+\b(?!\.))                      # 1
       )
+
+  boolean-literal:
+    patterns:
+      - name: constant.language.boolean.true.4gl
+        match: (?i){{startOfIdentifier}}true{{endOfIdentifier}}
+      - name: constant.language.boolean.false.4gl
+        match: (?i){{startOfIdentifier}}false{{endOfIdentifier}}
+
+  null-literal:
+    name: constant.language.null.4gl
+    match: (?i){{startOfIdentifier}}null{{endOfIdentifier}}
+
+  numeric-constant-literal:
+    patterns:
+      - name: constant.language.notfound.4gl
+        match: (?i){{startOfIdentifier}}notfound{{endOfIdentifier}}
